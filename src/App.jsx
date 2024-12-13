@@ -32,9 +32,7 @@ const App = () => {
   };
   const onHandleSubmit = (e) => {
     e.preventDefault();
-    const { error } = productSchema.validate(inputValue, {
-      abortEarly: false,
-    });
+    const { error } = productSchema.validate(inputValue, { abortEarly: false });
     if (error) {
       setErrorList(error.details);
       return;
@@ -75,7 +73,7 @@ const App = () => {
           path="/products/add"
           element={
             <Add
-              error={errorList}
+              errors={errorList}
               onHandleSubmit={onHandleSubmit}
               onHandleChange={onHandleChange}
             />
